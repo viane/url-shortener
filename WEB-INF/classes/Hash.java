@@ -21,6 +21,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.util.*;
 import java.sql.*;
+import java.util.logging.Logger;
+
 
 public class Hash{
     private String hash_url;
@@ -30,6 +32,8 @@ public class Hash{
     private String create_time;
     private long id;
     private List<String> jsonStore;
+    private static final Logger LOGGER = Logger.getLogger(
+            Thread.currentThread().getStackTrace()[0].getClassName() );
 
     public Hash(String owner, String hash_level, String o_url, String create_time, long id, List<String> jsonStore){
         this.o_url =o_url;
@@ -57,8 +61,9 @@ public class Hash{
                 return "";
             }
         }else{ // login user request
-            long salt = create_time.hashCode() + owner.hashCode() + now.hashCode();
+            long salt = Math.abs(create_time.hashCode() + owner.hashCode() + now.hashCode());
             long baseID = id + salt;
+            LOGGER.info("\nUUID: "+baseID);
             try {
                 Base62Converter c = new Base62Converter(baseID, o_url);
                 c.setHashLevel(level);

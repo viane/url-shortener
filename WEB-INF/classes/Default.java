@@ -157,7 +157,7 @@ public class Default extends HttpServlet {
                     break;
                 }
                 iteration_count++;
-            }while(h_url.length()==0 || duplicate_h_url);
+            }while(h_url.length()==0 && duplicate_h_url);
 
             // failed to gerate url somehow
             if (h_url.length()==0){

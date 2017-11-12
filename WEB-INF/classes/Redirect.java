@@ -97,10 +97,9 @@ public class Redirect extends HttpServlet {
                             Timestamp now_timestamp = new Timestamp(date.getTime());
 
                             if (now_timestamp.after(expire_time_timestamp)){ // if the link already expired
-                                LOGGER.info("Url already expired.");
-                                resContainer.put("status", "Url already expired.");
-                                String res = new Gson().toJson(resContainer);
-                                response.getWriter().write(res);
+                                LOGGER.info("Url already expired. Redircting... "+request.getRequestURI());
+                                response.setContentType("text/html");
+                                response.sendRedirect("/test1/expired.html");
                             }else{
                                 String o_url_pattern = "\"o_url\":\"(.*)\"";
                                 Pattern ur = Pattern.compile(o_url_pattern);

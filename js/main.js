@@ -17,7 +17,7 @@ $(() => {
         let jsonToTableEntry = "<tr>";
         jsonToTableEntry += "<td>" + jsonObj.o_url + "</td>";
 
-        jsonToTableEntry += "<td><a href='" + window.location.href + "r/" + jsonObj.h_url + "'>" + jsonObj.h_url + "</a></td>";
+        jsonToTableEntry += "<td><a target='_blank' href='" + window.location.href + "r/" + jsonObj.h_url + "'>" + jsonObj.h_url + "</a></td>";
         if (jsonObj.is_private) {
           jsonToTableEntry += "<td>False</td>";
         } else {
