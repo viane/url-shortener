@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>URL Shortener</title>
+  <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="site-wrapper">
+    <div class="site-wrapper-inner">
+      <nav class="col-lg-12 header">
+        <div id="userid" contenteditable="true"><span class="glyphicon glyphicon-edit space-right"></span>userXXX</div>
+      </nav>
+      <div class="col-lg-5 main-container">
+        <div class="inner cover">
+          <span class="glyphicon glyphicon-link"></span>
+          <h1>URL Shortener</h1>
+
+          <div class="row">
+
+            <div class="col-lg-12">
+              <div class="input-group input-group-lg">
+                <input id="url-field" type="text" class="form-control" placeholder="Enter a link...">
+                <span class="input-group-btn">
+                  <button id="submit" class="btn btn-shorten" type="button">&#x23ce; SHORTEN</button>
+                </span>
+              </div>
+            </div>
+            <br>
+            <hr class="style3">
+            <div class="row">
+              <div class="col-sm-4">
+                <input id="access-type" type="checkbox" value="private">Only access by you?</input>
+              </div>
+
+              <div class="col-sm-3">
+                <input id="expire-time" type="text" class="form-control" placeholder="Days to expire">
+              </div>
+
+              <div class="col-sm-3">
+                <input id="hash-level" type="text" class="form-control" placeholder="Hash level 1 - 2">
+              </div>
+            </div>
+
+
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-lg-12 record-table">
+        <section>
+          <div class="tbl-header">
+            <table cellpadding="0" cellspacing="0" border="0">
+              <thead>
+                <tr>
+                  <th>Url</th>
+                  <th>Hash</th>
+                  <th>Public</th>
+                  <th>Expire In</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+          <div class="tbl-content">
+            <table id="record-table-body" cellpadding="0" cellspacing="0" border="0">
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment.min.js" integrity="sha256-zG8v+NWiZxmjNi+CvUYnZwKtHzFtdO8cAKUIdB8+U9I=" crossorigin="anonymous"></script>
+<script src="js/bootstrap-notify.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
