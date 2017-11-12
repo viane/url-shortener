@@ -93,7 +93,7 @@ public class Default extends HttpServlet {
             String req_body = request.getReader().lines().collect(Collectors.joining());
 
             String[] params = req_body.split("&");
-            
+
             String original_url = params[0];
 
             String owner =  params[3];
@@ -157,7 +157,7 @@ public class Default extends HttpServlet {
                     break;
                 }
                 iteration_count++;
-            }while(h_url.length()==0 && duplicate_h_url);
+            }while(h_url.length()==0 || duplicate_h_url);
 
             // failed to gerate url somehow
             if (h_url.length()==0){
