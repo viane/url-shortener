@@ -100,6 +100,7 @@ public class Default extends HttpServlet {
 
             String level =  params[4];
 
+            LOGGER.info("\n"+req_body);
 
             // url create time and expiretime
             int expire = Integer.parseInt(params[2]);

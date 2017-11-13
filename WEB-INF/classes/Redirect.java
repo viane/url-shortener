@@ -102,10 +102,12 @@ public class Redirect extends HttpServlet {
                                 response.sendRedirect("/test1/expired.html");
                             }else{
                                 String o_url_pattern = "\"o_url\":\"(.*)\"";
+
+
                                 Pattern ur = Pattern.compile(o_url_pattern);
                                 Matcher o_url_match = ur.matcher(fakeRecord);
                                 if (o_url_match.find()) {
-                                    String o_url = o_url_match.group(1).substring(0, o_url_match.group(1).indexOf("\""));
+                                    String o_url =  java.net.URLDecoder.decode(o_url_match.group(1).substring(0, o_url_match.group(1).indexOf("\"")), "UTF-8");
                                     LOGGER.info("Hash check passed, ready to redirect to " + o_url);
                                     response.setContentType("text/html");
                                     response.sendRedirect(o_url);

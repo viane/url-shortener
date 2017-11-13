@@ -27,7 +27,7 @@ public class Base62Converter {
                 this.LENGTH_OF_URL_CODE = 6;
                 break;
             case 2:
-                this.LENGTH_OF_URL_CODE = 6;
+                this.LENGTH_OF_URL_CODE = Math.floor(LENGTH_OF_ORGINAL_URL/3);
                 break;
             default:
                 this.LENGTH_OF_URL_CODE = 6;

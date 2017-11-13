@@ -15,10 +15,10 @@ $(() => {
         const jsonObj = data[i];
         // display table
         let jsonToTableEntry = "<tr>";
-        jsonToTableEntry += "<td>" + jsonObj.o_url + "</td>";
+        jsonToTableEntry += "<td>" + decodeURIComponent(jsonObj.o_url) + "</td>";
 
         jsonToTableEntry += "<td><a target='_blank' href='" + window.location.href + "r/" + jsonObj.h_url + "'>" + jsonObj.h_url + "</a></td>";
-        if (jsonObj.is_private) {
+        if (jsonObj.is_private=="0") {
           jsonToTableEntry += "<td>False</td>";
         } else {
           jsonToTableEntry += "<td>True</td>";
@@ -83,7 +83,8 @@ $(() => {
       const expire_time = $('#expire-time').val() || 1
       const owner = $('#userid').text().trim();
       const level = $('#hash-level').val() || 1
-      const fetch_body = o_url + "&" + is_private + "&" + expire_time + "&" + owner + "&" + level
+
+      const fetch_body = encodeURIComponent(o_url) + "&" + is_private + "&" + expire_time + "&" + owner + "&" + level
 
       const postUrl = "/test1/v1"
       const option = {
